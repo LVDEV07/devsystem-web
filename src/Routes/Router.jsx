@@ -3,6 +3,7 @@ import Sobre from '../Pages/Sobre'
 import Login from '../Pages/Login'
 import Navbar from '../Components/Navbar'
 import HomeLogado from '../Pages/HomeLogado'
+import Pessoas from '../Pages/Pessoas'
 
 export default function Router() {
 
@@ -30,7 +31,18 @@ export default function Router() {
                 />
 
                 <Route path='*' element={<Navigate to="/" replace/>}/>
+
+                 <Route 
+                    path="/pessoas"
+                    element={
+                        logado === "true"
+                        ? <Pessoas />
+                        : <Navigate to="/" replace />
+                    }
+                />
             </Routes>
+
+            
         </BrowserRouter>
     )
 }
